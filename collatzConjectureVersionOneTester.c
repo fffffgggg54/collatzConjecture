@@ -48,7 +48,7 @@ int main(){
   printf("Starting Number: %s\n", mpz_get_str(NULL, 10, startNum));
   printf("Count: %s\n", mpz_get_str(NULL, 10, count));
   printf("Seconds Taken: %f\n", timeSpent);
-  char s;
+  char s = NULL;
   printf("Input '0' and press return to exit\n");
   while(s != '0'){ s = getchar(); }
   return 0;

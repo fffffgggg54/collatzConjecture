@@ -36,10 +36,10 @@ int main(){
   currFile = fopen ("collatzMaxCountList.txt","w"); /* Open collatzSummaryList.txt for writing */
   setvbuf(currFile, NULL, _IONBF, 1);
   for(; mpz_cmp(iteration, uLimit) <= 0; mpz_add_ui(iteration, iteration, 1)){
-    
+
     mpz_set(num, iteration);
     mpz_set(startNum, num);
-    
+
     {
   	  char *s = mpz_get_str(NULL, 10, iteration);
       printf("%s\n", s);
@@ -56,21 +56,6 @@ int main(){
     }
     time_t endTime = clock(); // Stop recording time
     double timeSpent = (double)(endTime - startTime) / CLOCKS_PER_SEC;
-   /* fprintf(currFile, "**************************************************************************\n");
-    fprintf(currFile, "Info:\n");
-    {
-  	  char *s = mpz_get_str(NULL, 10, startNum);
-      fprintf(currFile, "Starting Number: %s\n", s);
-      free(s);
-	  s = NULL;
-    }
-    {
-  	  char *s = mpz_get_str(NULL, 10, count);
-      fprintf(currFile, "Count: %s\n", s);
-      free(s);
-	  s = NULL;
-    }
-    fprintf(currFile, "Seconds Taken: %f\n", timeSpent);*/
     if(mpz_cmp(count, maxCount) > 0){
       mpz_set(maxCount, count);
       mpz_set(numAtMaxCount, iteration);
@@ -89,7 +74,7 @@ int main(){
     }
   }
   printf("Greatest Count: %s at %s\n", mpz_get_str(NULL, 10, maxCount), mpz_get_str(NULL, 10, numAtMaxCount));
-  char s;
+  char s = NULL;
   printf("Input '0' and press return to exit\n");
   while(s != '0'){ s = getchar(); }
   return 0;
